@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Chao
+  - Moeda
+  - Estrela
+  - Morte
+  - Inimigo
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UltimoPlano
+    uniqueID: 3619697635
+    locked: 0
+  - name: TerceiroPlano
+    uniqueID: 2362965957
+    locked: 0
+  - name: SegundoPlano
+    uniqueID: 2808900687
+    locked: 0
+  - name: Personagem
+    uniqueID: 3227393459
+    locked: 0
+  - name: PrimeiroPlano
+    uniqueID: 964483733
+    locked: 0
