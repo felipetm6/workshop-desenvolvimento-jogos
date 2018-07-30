@@ -12,11 +12,11 @@ public class Moeda : MonoBehaviour
 	//Timer para desativar a Estrela
 	private WaitForSeconds timerParaDesativar = new WaitForSeconds(.1f);
 
-	//Cache do Renderer de Sprite desse objeto
+	//Cache do SpriteRenderer desse objeto
 	private SpriteRenderer spRenderer;
-	//Cache da Fonte de Áudio desse objeto
+	//Cache da Audio Source desse objeto
 	private AudioSource aSource;
-	//Cache do Sistema de Partículas desse objeto
+	//Cache do Particle System desse objeto
 	private ParticleSystem pSystem;
 
 	#region Metodos da Unity

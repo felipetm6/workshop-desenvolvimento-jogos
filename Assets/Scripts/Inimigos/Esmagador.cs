@@ -34,7 +34,7 @@ public class Esmagador : MonoBehaviour
 		posicaoInicial = transform.position;
 	}
 
-	//Função de Evento chamada ao rodar a cena
+	//Função de Evento chamada todo frame
 	private void Update()
 	{
 		//Se não estiver carregando, verifica a distância entre jogador e inimigo, e responde de acordo
@@ -89,7 +89,7 @@ public class Esmagador : MonoBehaviour
 	#endregion
 
 	/// <summary>
-	/// Corotina que espera o tempo definido para o inimigo iniciar sua recuperação
+	/// Coroutine que espera o tempo definido para o inimigo iniciar sua recuperação
 	/// </summary>
 	/// <returns></returns>
 	private IEnumerator Recarregar()
