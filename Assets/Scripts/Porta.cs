@@ -23,6 +23,7 @@ public class Porta : MonoBehaviour
 	//Função de Evento chamada sempre quando o GameObject é ativado
 	private void OnEnable()
 	{
+		AoPegarEstrela(0);
 	}
 
 	//Função de Evento chamada sempre quando o GameObject é desativado

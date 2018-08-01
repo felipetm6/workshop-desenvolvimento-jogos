@@ -114,7 +114,7 @@ public class Jogador : MonoBehaviour
 		//Se o eixoHorizontal (Entrada) for diferente de zero, define que a velocidade em X é a velocidade máxima
 		if (eixoHorizontal != 0)
 		{
-			velocidadeX = velMax;
+			velocidadeX = velMax * eixoHorizontal;
 		}
 		//Se o eixoHorizontal (Entrada) for zero, define que a velocidade em X é zero
 		//Isso é feito para eliminar o efeito de parada/deslizamento do Rigidbody2D
