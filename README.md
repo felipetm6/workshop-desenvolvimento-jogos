@@ -49,7 +49,7 @@ Para acessar esse projeto, você precisa ter a engine [Unity](https://unity3d.co
     * Paletas
 
 ## Por fazer
-- [ ] Terminar os comentários em todos os códigos
+- [X] Terminar os comentários em todos os códigos
 - [ ] Expandir o README
 - [ ] Criar um *package* do Projeto Completo
 
