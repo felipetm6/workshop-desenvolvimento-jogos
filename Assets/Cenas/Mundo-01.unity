@@ -412,10 +412,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 1313496942673738, guid: af4d2349967e14d449e18bf0023a84b0, type: 2}
-      propertyPath: m_TagString
-      value: Inimigo
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4d2349967e14d449e18bf0023a84b0, type: 2}
   m_IsPrefabAsset: 0
@@ -8503,10 +8499,6 @@ Prefab:
       propertyPath: m_Name
       value: Serra
       objectReference: {fileID: 0}
-    - target: {fileID: 1313496942673738, guid: af4d2349967e14d449e18bf0023a84b0, type: 2}
-      propertyPath: m_TagString
-      value: Inimigo
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4d2349967e14d449e18bf0023a84b0, type: 2}
   m_IsPrefabAsset: 0
@@ -12612,7 +12604,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2067384922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5187435, y: 2.432353, z: -10}
+  m_LocalPosition: {x: 2.5208073, y: 2.432353, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 348389954}
