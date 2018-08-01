@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿//#define EXERCICIO_AULA
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //Define que ao usar Random neste script, estamos nos referindo à função random da UnityEngine, e não a de System
 using Random = UnityEngine.Random;
 
+#if !EXERCICIO_AULA
 public class Jogador : MonoBehaviour
 {
 	//Variável que será utilizada para o Singleton
@@ -322,3 +325,60 @@ public class Jogador : MonoBehaviour
 		StartCoroutine(PiscarAleatoriamente());
 	}
 }
+
+#else
+public class Jogador : MonoBehaviour
+{
+	//Variável que será utilizada para o Singleton
+	public static Jogador Instancia;
+
+#region Metodos da Unity
+	//Função de Evento chamada ao rodar a cena
+	private void Awake()
+	{
+		//Esse é um método de estabelecer um Singleton utilizado na Unity
+		//Se a Instância for nula, ela é igual esse objeto. Se ela for diferente desse objeto, então há dois Jogadores na cena, e esse objeto pode ser apagado tranquilamente
+		if (Instancia == null)
+		{
+			Instancia = this;
+		}
+		else if (Instancia != this)
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	//Função de Evento chamada ao rodar a cena
+	private void Start()
+	{
+
+	}
+
+	//Função de Evento chamada todo frame
+	//O Update é recomendado para coletar a Entrada (Input) do usuário
+	private void Update()
+	{
+
+	}
+
+	//Função de Evento chamada uma vez por frame
+	//O FixedUpdate é recomendado para realizar movimentações e ações relacionadas à Física
+	private void FixedUpdate()
+	{
+
+	}
+
+	//Função de Evento chamada sempre que um Colisor colide com outro
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+
+	}
+
+	//Função de Evento chamada sempre que um Colisor entra em um Trigger
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+
+	}
+#endregion
+}
+#endif
