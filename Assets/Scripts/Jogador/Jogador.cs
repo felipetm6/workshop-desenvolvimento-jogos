@@ -109,22 +109,11 @@ public class Jogador : MonoBehaviour
 		if (estaMorto) return;
 
 		//Cria uma variável velocidadeX, que corresponde a velocidade no eixo X do Rigidbody2D junto com a Entrada do usuário
-		var velocidadeX = (rb2D.velocity.x) + (forcaMovimento.x * eixoHorizontal);
-		//Limita a variável velocidadeX entre as velocidades mínima e máxima
-		//Math.Clamp é utilizado como Mathf.Clamp(valorParaLimitar, Minimo, Maximo) e retorna o valor ajustado
-		velocidadeX = Mathf.Clamp(velocidadeX, -velMax, velMax);
+		var velocidadeX = 0f;
 
 		//Se o eixoHorizontal (Entrada) for diferente de zero, define que a velocidade em X é a velocidade máxima
-		if (eixoHorizontal != 0)
-		{
-			velocidadeX = velMax * eixoHorizontal;
-		}
-		//Se o eixoHorizontal (Entrada) for zero, define que a velocidade em X é zero
-		//Isso é feito para eliminar o efeito de parada/deslizamento do Rigidbody2D
-		else
-		{
-			velocidadeX = 0;
-		}
+		//Se o eixoHorizontal (Entrada) for igual a zero, define que a velocidade em X também será zero (através da multiplicação)
+		velocidadeX = velMax * eixoHorizontal;
 
 		//Uma forma de fazer o pulo utilizando a física da Unity é alterar o impacto da gravidade nesse Rigidbody
 		//Atribui o impacto da gravidade atual na variável velocidadeY
