@@ -14,6 +14,8 @@ public class Jogador : MonoBehaviour
 
 	//Variável que define qual a Força do Movimento (horizontal) da personagem
 	private Vector2 forcaMovimento = new Vector2(0.25f, 8.7f);
+	//Variável que recebe a informação de colisão do RaycastNonAlloc
+	private RaycastHit2D[] results = new RaycastHit2D[16];
 
 	//Bandeira utilizada para definir se a personagem está andando
 	private bool estaAndando;
@@ -108,6 +110,9 @@ public class Jogador : MonoBehaviour
 		//Se estiver morto, não é necessário fazer a movimentação
 		if (estaMorto) return;
 
+		//Chama a Função que verifica se o Jogador está no chão ou não
+		VerificarChao();
+
 		//Cria uma variável velocidadeX, que corresponde a velocidade no eixo X do Rigidbody2D junto com a Entrada do usuário
 		var velocidadeX = 0f;
 
@@ -150,37 +155,10 @@ public class Jogador : MonoBehaviour
 	//Função de Evento chamada sempre que um Colisor colide com outro
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		//Se o objeto de colisão não tiver uma tag chão, e estiver pulando, para o pulo
-		if (!collision.gameObject.CompareTag("Chao"))
+		//Se o objeto de colisão tiver uma tag de Inimigo ou morte e o jogador não estiver morto, chama a função Morrer
+		if (collision.gameObject.CompareTag("Inimigo") || collision.gameObject.CompareTag("Morte") && !estaMorto)
 		{
-			if (estaPulando)
-			{
-				estaPulando = false;
-			}
-
-			//Se o objeto de colisão tiver uma tag de Inimigo ou morte e o jogador não estiver morto, chama a função Morrer
-			if (collision.gameObject.CompareTag("Inimigo") || collision.gameObject.CompareTag("Morte") && !estaMorto)
-			{
-				Morrer();
-			}
-		}
-		else
-		{
-			//Se o objeto de colisão tem uma tag chão, define a gravidade como 1 (padrão) e configura a bandeira correspondente
-			rb2D.gravityScale = 1;
-			estaNoChao = true;
-		}
-	}
-
-	//Função de Evento chamada sempre que um Colisor para a colisão com outro
-	private void OnCollisionExit2D(Collision2D collision)
-	{
-		//Se o objeto de colisão tiver uma tag chão, cancelar pulo
-		if (collision.gameObject.CompareTag("Chao"))
-		{
-			rb2D.gravityScale = 1;
-			estaPulando = false;
-			estaNoChao = false;
+			Morrer();
 		}
 	}
 
@@ -284,6 +262,33 @@ public class Jogador : MonoBehaviour
 		animator.SetBool("Pulando", animacaoPulando);
 		//Atribui o valor estaAndando para a variável do Animator Caindo. Se a personagem está caindo, a animação Caindo fica true e é chamada, se não, fica false e é encerrada
 		animator.SetBool("Caindo", estaCaindo);
+	}
+
+	private void VerificarChao()
+	{
+		results = new RaycastHit2D[16];
+
+		if (Physics2D.RaycastNonAlloc(transform.position, -Vector3.up, results, 0.25f) > 0)
+		{
+			foreach (var result in results)
+			{
+				if (result.transform)
+				{
+					if (!result.transform.CompareTag("Chao"))
+					{
+						rb2D.gravityScale = 1;
+						estaPulando = false;
+						estaNoChao = false;
+					}
+					else
+					{
+						rb2D.gravityScale = 1;
+						estaPulando = false;
+						estaNoChao = true;
+					}
+				}
+			}
+		}
 	}
 
 	/// <summary>
