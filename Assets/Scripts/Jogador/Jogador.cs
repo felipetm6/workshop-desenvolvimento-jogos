@@ -131,7 +131,7 @@ public class Jogador : MonoBehaviour
 			//Se ele está caindo, a gravidade deve aumentar
 			if (!estaNoChao)
 			{
-				velocidadeY += (.2f * Time.fixedDeltaTime);
+				velocidadeY += .2f * Time.fixedDeltaTime;
 			}
 		}
 
@@ -169,6 +169,18 @@ public class Jogador : MonoBehaviour
 			//Se o objeto de colisão tem uma tag chão, define a gravidade como 1 (padrão) e configura a bandeira correspondente
 			rb2D.gravityScale = 1;
 			estaNoChao = true;
+		}
+	}
+
+	//Função de Evento chamada sempre que um Colisor para a colisão com outro
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		//Se o objeto de colisão tiver uma tag chão, cancelar pulo
+		if (collision.gameObject.CompareTag("Chao"))
+		{
+			rb2D.gravityScale = 1;
+			estaPulando = false;
+			estaNoChao = false;
 		}
 	}
 
